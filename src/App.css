@@ -1,38 +1,60 @@
-.App {
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
   text-align: center;
+  border-bottom: 0.1rem solid;
+  padding: 0.2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.GamesList{
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.GamesList__GamesCard{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: grid;
+  grid-template-columns: 20% 20% 30% 30%;
+  grid-template-rows: 40% 35% 25%;
+  margin: 1rem;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 0.5rem;
+  min-height: 8rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.GamesCard__h3{
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
-.App-link {
-  color: #61dafb;
+.GamesCard__category{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.GamesCard__img {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  grid-column-start: 4;
+  grid-row-start: 1;
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.GamesCard__votes{
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+.GamesCard__commentCount{
+  grid-column-start: 2;
+  grid-row-start: 3;
 }
