@@ -9,12 +9,37 @@
   padding: 0.2rem;
 }
 
-.GamesList{
-  display: grid;
-  grid-template-columns: 15% 70% 15%;
+.header__h1 {
+  margin: 1rem;
+  text-decoration: none;
 }
 
-.GamesList__GamesCard{
+.Navbar {
+  text-align: center;
+  padding: 1rem;
+}
+
+.Navbar__Category {
+  display: inline-block;
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 0.2rem;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.GamesList {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+}
+
+.GamesList__h2 {
+  text-align: center;
+  grid-column-start: 2;
+  text-transform: capitalize;
+}
+
+.GamesList__GamesCard {
   grid-column-start: 2;
   grid-column-end: 3;
   display: grid;
@@ -27,34 +52,36 @@
   min-height: 8rem;
 }
 
-.GamesCard__h3{
+.GamesCard__h3 {
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-end: 3;
 }
 
-.GamesCard__category{
+.GamesCard__category {
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 4;
   grid-row-start: 2;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
 }
 
 .GamesCard__img {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: auto;
   grid-column-start: 4;
   grid-row-start: 1;
+  grid-row-end: 4;
   max-height: 100px;
   max-width: 100px;
 }
 
-.GamesCard__votes{
+.GamesCard__votes {
   grid-column-start: 1;
   grid-row-start: 3;
 }
 
-.GamesCard__commentCount{
+.GamesCard__commentCount {
   grid-column-start: 2;
   grid-row-start: 3;
 }
