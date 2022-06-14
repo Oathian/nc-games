@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getReviewsByCategory } from "../utils/api"
 import { formatText } from "../utils/formatText";
@@ -23,7 +23,7 @@ const ReviewsByCategory = () => {
             {reviews.map((review) => {
                 return(
                     <section className="GamesList__GamesCard" key={review.review_id}>
-                        <h3 className="GamesCard__h3">{review.title}</h3>
+                        <Link className="GamesCard__h3" key={review.review_id} to={`/reviews/${review.review_id}`}><h3>{review.title}</h3></Link>
                         <img className="GamesCard__img" src={review.review_img_url} alt={review.title}></img>
                         <p className="GamesCard__votes">{review.votes}</p>
                         <p className="GamesCard__commentCount">{review.comment_count}</p>

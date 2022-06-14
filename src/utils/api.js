@@ -24,3 +24,10 @@ export const getReviewsByCategory = (category) => {
         return reviews;
     })
 }
+
+export const getReviewById = (review_id) => {
+    return gamesApi.get(`/reviews/${review_id}`)
+    .then(({ data : { review }}) => {
+        return review;
+    })
+}

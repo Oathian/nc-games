@@ -1,0 +1,10 @@
+.header {
+    text-align: center;
+    border-bottom: 0.1rem solid;
+    padding: 0.2rem;
+}
+  
+.header__h1 {
+    margin: 1rem;
+    text-decoration: none;
+}
