@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react"
-import  { getAllReviews }  from "../utils/api"
-import { Link } from "react-router-dom"
+import  { getReviews }  from "../utils/api"
+import { Link, useParams } from "react-router-dom"
 
 const GamesList = () => {
+    const { category_name } = useParams();
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getAllReviews()
+        setLoading(true);
+        getReviews(category_name)
         .then((reviewsFromApi) => {
             setReviews(reviewsFromApi);
             setLoading(false);
         })
-    }, [reviews])
+    }, [category_name])
 
     if(loading) return <p>loading...</p>
     return (
