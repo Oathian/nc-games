@@ -17,6 +17,7 @@ const Navbar = () => {
 
     return (
         <nav className="Navbar">
+            <Link className="Navbar__Category" to="/">Home</Link>
             {categories.map((category) => {
                 return <Link className="Navbar__Category" key={category} to={`/category/${category}`}>{formatText(category)}</Link>
             })}
