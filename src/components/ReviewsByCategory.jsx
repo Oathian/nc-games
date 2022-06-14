@@ -17,13 +17,13 @@ const ReviewsByCategory = () => {
     }, [category_name])
 
     if(loading) return <p>loading...</p>
-    return(
+    return(<>
         <section className="GamesList">
+            <h2 className="GamesList__h2">{formatText(category_name)}</h2>
             {reviews.map((review) => {
                 return(
                     <section className="GamesList__GamesCard" key={review.review_id}>
                         <h3 className="GamesCard__h3">{review.title}</h3>
-                        <p className="GamesCard__category">{formatText(review.category)}</p>
                         <img className="GamesCard__img" src={review.review_img_url} alt={review.title}></img>
                         <p className="GamesCard__votes">{review.votes}</p>
                         <p className="GamesCard__commentCount">{review.comment_count}</p>
@@ -31,6 +31,7 @@ const ReviewsByCategory = () => {
                 )
             })}
         </section>
+        </>
     )
 }
 
