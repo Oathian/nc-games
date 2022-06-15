@@ -1,5 +1,7 @@
 .Review__PostComment {
-    display:flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .PostComment__Input {
