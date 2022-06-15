@@ -1,10 +1,22 @@
 .header {
     text-align: center;
-    border-bottom: 0.1rem solid;
+    border-bottom: 0.1rem solid #99714f;
     padding: 0.2rem;
+    min-height: 10vh;
+    background: linear-gradient(to right, transparent 0%, #c9995b 200px, #99714f 80%), url("../../public/chess.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
   
 .header__h1 {
-    margin: 1rem;
     text-decoration: none;
+    color: #524942;
+}
+
+.header__h1 h1 {
+    margin: 3rem;
+}
+
+.header__h1:hover {
+    color: #c8e6e5;
 }

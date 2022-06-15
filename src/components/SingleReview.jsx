@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getReviewById } from "../utils/api";
 import { formatText } from "../utils/formatText";
+import Loading from "./Loading"
 import '../styles/SingleReview.css';
 
 const SingleReview = () => {
@@ -17,7 +18,7 @@ const SingleReview = () => {
         })
     }, [review_id])
 
-    if(loading) return <p>loading...</p>
+    if(loading) return <Loading />
     return(
         <section className="Review">
             <h2 className="Review__h2">{review.title}</h2>

@@ -1,15 +1,20 @@
 .Navbar {
     text-align: center;
     padding: 0.5rem;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid#99714f;
+    background: #c9995b;
 }
   
 .Navbar__Category {
     display: inline-block;
-    border: 1px solid black;
-    margin: 0.2rem;
+    margin: 0.4rem;
     padding: 0.2rem;
     text-transform: capitalize;
     text-decoration: none;
+    color: #524942;
+}
+
+.Navbar__Category:hover {
+    color: #c8e6e5;
 }
   
