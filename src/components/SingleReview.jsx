@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getReviewById } from "../utils/api";
 import { formatText } from "../utils/formatText";
-import Loading from "./Loading"
+import Loading from "./Loading";
+import CommentList from "./CommentList"
 import '../styles/SingleReview.css';
 
 const SingleReview = () => {
@@ -36,6 +37,7 @@ const SingleReview = () => {
                 <p className="InteractionBar__commentCount">{review.comment_count}</p>
             </div>
             <p className="Review__body">{review.review_body}</p>
+            <CommentList />
         </section>
     )
 }
