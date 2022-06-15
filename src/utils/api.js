@@ -24,3 +24,10 @@ export const getReviewById = (review_id) => {
         return review;
     })
 }
+
+export const patchVotes = (review_id, vote) => {
+    return gamesApi.patch(`/reviews/${review_id}`, {inc_votes : vote})
+    .then(({ data : { review }}) => {
+      return review;
+    })
+  }
