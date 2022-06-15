@@ -3,6 +3,31 @@
   margin: 0;
 }
 
+.header {
+  text-align: center;
+  border-bottom: 0.1rem solid;
+  padding: 0.2rem;
+}
+
+.header__h1 {
+  margin: 1rem;
+  text-decoration: none;
+}
+
+.Navbar {
+  text-align: center;
+  padding: 1rem;
+}
+
+.Navbar__Category {
+  display: inline-block;
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 0.2rem;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
 .GamesList {
   display: grid;
   grid-template-columns: 10% 80% 10%;
@@ -28,7 +53,6 @@
 }
 
 .GamesCard__h3 {
-  text-decoration: none;
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 1;
