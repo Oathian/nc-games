@@ -1,0 +1,20 @@
+.Review__CommentList {
+    border-top: 1px solid black;
+}
+
+.Review__CommentTitle {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.CommentList__CommentCard {
+    margin: 1rem;
+    border: 2px solid black;
+    padding: 0.5rem;
+    border-radius: 20px;
+}
+
+.CommentCard__body {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}

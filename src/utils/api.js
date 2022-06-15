@@ -25,6 +25,13 @@ export const getReviewById = (review_id) => {
     })
 }
 
+export const getCommentsByReviewId = (review_id) => {
+    return gamesApi.get(`/reviews/${review_id}/comments`, { params: { review_id: review_id }})
+    .then(({ data : { comments }}) => {
+        return comments;
+    })
+}
+
 export const patchVotes = (review_id, vote) => {
     return gamesApi.patch(`/reviews/${review_id}`, {inc_votes : vote})
     .then(({ data : { review }}) => {
