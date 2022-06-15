@@ -12,7 +12,6 @@ const Voting = ({ review }) => {
     const handleDownvote = () => {
         patchVotes(review.review_id, -1)
         .then((data) => {
-            
         })
     }
     

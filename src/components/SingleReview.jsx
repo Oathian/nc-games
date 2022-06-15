@@ -31,7 +31,7 @@ const SingleReview = () => {
             <img className="Review__img" src={review.review_img_url} alt={review.title}/>
             <div className="Review__InteractionBar">
                 <Voting review={review} />
-                <p className="InteractionBar__commentCount">{review.comment_count}</p>
+                <p className="InteractionBar__commentCount">{review.comment_count} Comments</p>
             </div>
             <p className="Review__body">{review.review_body}</p>
             <CommentList />
