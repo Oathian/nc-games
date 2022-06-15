@@ -1,21 +1,25 @@
-import { useEffect, useState } from "react"
-import  { getAllReviews }  from "../utils/api"
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getReviewsByCategory } from "../utils/api"
+import { formatText } from "../utils/formatText";
 
-const GamesList = () => {
+const ReviewsByCategory = () => {
+    const { category_name } = useParams();
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getAllReviews()
+        getReviewsByCategory(category_name)
         .then((reviewsFromApi) => {
             setReviews(reviewsFromApi);
             setLoading(false);
         })
-    }, [reviews])
+    }, [category_name])
 
     if(loading) return <p>loading...</p>
-    return (
+    return(<>
         <section className="GamesList">
+            <h2 className="GamesList__h2">{formatText(category_name)}</h2>
             {reviews.map((review) => {
                 return(
                     <section className="GamesList__GamesCard" key={review.review_id}>
@@ -27,7 +31,8 @@ const GamesList = () => {
                 )
             })}
         </section>
+        </>
     )
 }
 
-export default GamesList;
+export default ReviewsByCategory;

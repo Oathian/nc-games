@@ -1,8 +1,8 @@
-import './styles/App.css';
+import './App.css';
 import Header from "./components/Header"
 import Navbar from "./components/Navbar"
 import Main from "./components/Main"
-import SingleReview from './components/SingleReview';
+import ReviewsByCategory from "./components/ReviewsByCategory"
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -12,8 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Main />}/>
-        <Route path="/category/:category_name" element={<Main />}/>
-        <Route path="/reviews/:review_id" element={<SingleReview />}/>
+        <Route path="/category/:category_name" element={<ReviewsByCategory />}/>
       </Routes>
     </div>
   );
