@@ -35,6 +35,10 @@
   grid-row-end: 3;
 }
 
+.GamesCard__h3:hover {
+  text-decoration: underline;
+}
+
 .GamesCard__category {
   grid-column-start: 1;
   grid-column-end: 4;

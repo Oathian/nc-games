@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import  { getReviews }  from "../utils/api"
 import { Link, useParams } from "react-router-dom"
+import Loading from "./Loading"
 
 const GamesList = () => {
     const { category_name } = useParams();
@@ -16,7 +17,7 @@ const GamesList = () => {
         })
     }, [category_name])
 
-    if(loading) return <p>loading...</p>
+    if(loading) return <Loading />
     return (
         <section className="GamesList">
             {reviews.map((review) => {
