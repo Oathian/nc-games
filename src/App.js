@@ -4,9 +4,14 @@ import Navbar from "./components/Navbar"
 import Main from "./components/Main"
 import SingleReview from './components/SingleReview';
 import { Routes, Route } from 'react-router-dom';
+import { useState } from "react"
+import { UserContext } from "./contexts/User";
 
 function App() {
+  const [user] = useState("happyamy2016");
+
   return (
+    <UserContext.Provider value={{ user }}>
     <div className="App">
       <Header />
       <Navbar />
@@ -16,6 +21,7 @@ function App() {
         <Route path="/reviews/:review_id" element={<SingleReview />}/>
       </Routes>
     </div>
+    </UserContext.Provider>
   );
 }
 

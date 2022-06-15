@@ -1,0 +1,11 @@
+.Review__PostComment {
+    display:flex;
+}
+
+.PostComment__Input {
+    padding: 0.2rem;
+}
+
+.PostComment__Button {
+    padding: 1rem;
+}

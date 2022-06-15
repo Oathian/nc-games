@@ -4,6 +4,7 @@ import { getReviewById } from "../utils/api";
 import { formatText } from "../utils/formatText";
 import Loading from "./Loading";
 import CommentList from "./CommentList";
+import PostComment from "./PostComment";
 import Voting from "./Voting";
 import '../styles/SingleReview.css';
 
@@ -35,6 +36,7 @@ const SingleReview = () => {
             </div>
             <p className="Review__body">{review.review_body}</p>
             <CommentList />
+            <PostComment />
         </section>
     )
 }
