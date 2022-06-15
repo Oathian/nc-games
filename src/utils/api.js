@@ -4,8 +4,8 @@ const gamesApi = axios.create({
     baseURL: "https://nc-games-aidan.herokuapp.com/api",
 });
 
-export const getAllReviews = () => {
-    return gamesApi.get("/reviews")
+export const getReviews = (category) => {
+    return gamesApi.get("/reviews", { params: { category: category}})
     .then(({ data : { reviews }}) => {
         return reviews;
     })
@@ -18,9 +18,9 @@ export const getAllCategories = () => {
     })
 }
 
-export const getReviewsByCategory = (category) => {
-    return gamesApi.get(`/reviews?category=${category}`)
-    .then(({ data : { reviews }}) => {
-        return reviews;
+export const getReviewById = (review_id) => {
+    return gamesApi.get(`/reviews/${review_id}`)
+    .then(({ data : { review }}) => {
+        return review;
     })
 }

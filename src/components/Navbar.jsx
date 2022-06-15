@@ -2,6 +2,7 @@ import  { getAllCategories }  from "../utils/api"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import { formatText } from "../utils/formatText";
+import "../styles/Navbar.css"
 
 const Navbar = () => {
     const [categories, setCategories] = useState([]);
