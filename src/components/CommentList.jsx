@@ -16,12 +16,13 @@ const CommentList = () => {
 
     return(
         <section className="Review__CommentList">
+            {comments.length > 0 ? <h3 className="Review__CommentTitle">Comments:</h3>:<></>}
             {comments.map((comment) => {
                 return(
-                    <section key={comment.key} className="CommentList__CommentCard">
+                    <section key={comment.comment_id} className="CommentList__CommentCard">
                         <p className="CommentCard__author">User: {comment.author}</p>
                         <p className="CommentCard__body">{comment.body}</p>
-                        <p className="CommentCard__votes">{comment.votes}</p>
+                        <p className="CommentCard__votes">Votes: {comment.votes}</p>
                     </section>
                 )
             })}
