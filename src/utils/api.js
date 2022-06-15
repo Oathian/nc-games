@@ -37,4 +37,11 @@ export const patchVotes = (review_id, vote) => {
     .then(({ data : { review }}) => {
       return review;
     })
-  }
+}
+
+export const postComment = (username, body, review_id) => {
+    return gamesApi.post(`/reviews/${review_id}/comments`, {username : username, body : body})
+    .then(({ data : { review }}) => {
+      return review;
+    })
+}

@@ -8,10 +8,12 @@
 }
 
 .CommentList__CommentCard {
-    margin: 1rem;
+    margin: 1rem auto 1rem auto;
     border: 2px solid black;
     padding: 0.5rem;
     border-radius: 20px;
+    word-wrap: break-word;
+    max-width: 40rem;
 }
 
 .CommentCard__body {
