@@ -4,20 +4,23 @@ import { getReviewById } from "../utils/api";
 import { formatText } from "../utils/formatText";
 import Loading from "./Loading";
 import CommentList from "./CommentList"
+import Voting from "./Voting"
 import '../styles/SingleReview.css';
 
 const SingleReview = () => {
     const { review_id } = useParams();
     const [loading, setLoading] = useState(true);
     const [review, setReview] = useState({});
+    const [votes, setVotes] = useState({});
 
     useEffect(() => {
         getReviewById(review_id)
         .then((reviewFromApi) => {
             setReview(reviewFromApi);
+            setVotes(reviewFromApi.votes);
             setLoading(false);
         })
-    }, [review_id])
+    }, [review_id, review])
 
     if(loading) return <Loading />
     return(
@@ -29,11 +32,7 @@ const SingleReview = () => {
             </div>
             <img className="Review__img" src={review.review_img_url} alt={review.title}/>
             <div className="Review__InteractionBar">
-                <div className="InteractionBar__Voting">
-                    <button className="Voting__upvote">Up</button>
-                    <p className="Voting__votes">{review.votes}</p>
-                    <button className="Voting__downvote">Down</button>
-                </div>
+                <Voting review={review} votes={votes} />
                 <p className="InteractionBar__commentCount">{review.comment_count}</p>
             </div>
             <p className="Review__body">{review.review_body}</p>
