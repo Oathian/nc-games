@@ -3,33 +3,41 @@ import  { getReviews }  from "../utils/api";
 import { Link, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import Voting from "./Voting";
+import SortMenu from "./SortMenu";
 
 const GamesList = () => {
     const { category_name } = useParams();
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [order, setOrder] = useState(undefined);
+    const [sortBy, setSortBy] = useState(undefined);
 
     useEffect(() => {
-        getReviews(category_name)
+        setLoading(true);
+        getReviews(category_name, sortBy, order)
         .then((reviewsFromApi) => {
             setReviews(reviewsFromApi);
             setLoading(false);
         })
-    }, [category_name, reviews])
+    }, [category_name, order, sortBy])
 
-    if(loading) return <Loading />
     return (
-        <section className="GamesList">
-            {reviews.map((review) => {
-                return(
-                    <section className="GamesList__GamesCard" key={review.review_id}>
-                        <Link className="GamesCard__h3" key={review.review_id} to={`/reviews/${review.review_id}`}><h3>{review.title}</h3></Link>
-                        <img className="GamesCard__img" src={review.review_img_url} alt={review.title}></img>
-                        <Voting review={review} />
-                        <p className="GamesCard__commentCount">{review.comment_count} Comments</p>
-                    </section>
-                )
-            })}
+        <section className="Main">
+            <SortMenu setOrder={setOrder} setSortBy={setSortBy}/>
+            {loading?<Loading />:
+                <section className="GamesList">
+                    {reviews.map((review) => {
+                    return(
+                        <section className="GamesList__GamesCard" key={review.review_id}>
+                            <Link className="GamesCard__h3" key={review.review_id} to={`/reviews/${review.review_id}`}><h3>{review.title}</h3></Link>
+                            <img className="GamesCard__img" src={review.review_img_url} alt={review.title}></img>
+                            <Voting review={review} />
+                            <p className="GamesCard__commentCount">{review.comment_count} Comments</p>
+                        </section>
+                    )
+                })}
+                </section>
+                }
         </section>
     )
 }
