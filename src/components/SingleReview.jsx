@@ -14,12 +14,13 @@ const SingleReview = () => {
     const [review, setReview] = useState({});
 
     useEffect(() => {
+        setLoading(true);
         getReviewById(review_id)
         .then((reviewFromApi) => {
             setReview(reviewFromApi);
             setLoading(false);
         })
-    }, [review_id, review])
+    }, [review_id])
 
     if(loading) return <Loading />
     return(
