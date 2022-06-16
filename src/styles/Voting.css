@@ -1,5 +1,17 @@
+.InteractionBar__Voting {
+    margin-top: 0.5rem;
+}
+
 .InteractionBar__Voting button {
     max-height: 1.2rem;
+    max-width: 1.2rem;
     margin-left: 0.2rem;
     margin-right: 0.2rem;
+    border: 0px;
+    background-color: #d3c9bc;
+}
+
+.vote__img{
+    max-width: 15px;
+    cursor: pointer;
 }

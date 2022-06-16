@@ -3,6 +3,23 @@
     border-right: 1px solid #524942;
     background-color: #99714f;
     color:#524942;
-    justify-content: center;
-    min-height: 100vh;
+    flex-flow: column;
+    height: 100%;
+}
+
+.SortMenu__form {
+    margin: 1rem;
+}
+
+.SortMenu__form ul{
+    list-style-type: none;
+    margin: 0.2rem;
+}
+
+.SortMenu__form button{
+    border-radius: 20px;
+    padding: 0.2rem;
+    border: #524942;
+    color:#524942;
+    align-self: center;
 }

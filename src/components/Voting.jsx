@@ -21,9 +21,9 @@ const Voting = ({ review }) => {
     
     return(
     <div className="InteractionBar__Voting">
-        <button onClick={handleUpvote} className="Voting__upvote">Up</button>
+        <button onClick={handleUpvote} className="Voting__upvote"><img className="vote__img" src="/upvote.svg" alt="upvote button"/></button>
         <p className="Voting__votes">{votes}</p>
-        <button onClick={handleDownvote}  className="Voting__downvote">Down</button>
+        <button onClick={handleDownvote}  className="Voting__downvote"><img className="vote__img" src="/downvote.svg" alt="downvote button"/></button>
     </div>
     )
 }

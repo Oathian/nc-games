@@ -6,7 +6,7 @@ const SortMenu = ({ setOrder, setSortBy }) => {
         event.preventDefault();
         for(let i = 0; i < 6; i++){
             if(event.target[i].checked === true) {
-                if(event.target[i].name === "filter_by") {
+                if(event.target[i].name === "sort_by") {
                     setSortBy(event.target[i].id);
                 }
                 if(event.target[i].name === "order") {
@@ -18,12 +18,12 @@ const SortMenu = ({ setOrder, setSortBy }) => {
 
     return (
         <section className="SortMenu">
-            <form onSubmit={handleSumbit}>
+            <form className="SortMenu__form" onSubmit={handleSumbit}>
                 <h4>Sort by:</h4>
                 <ul>
-                    <li><input id="created_at" name="filter_by" type="radio" defaultChecked></input><label htmlFor="created_at">Date</label></li>
-                    <li><input id="comment_count" name="filter_by" type="radio"></input><label htmlFor="comment_count">Comment Count</label></li>
-                    <li><input id="votes" name="filter_by" type="radio"></input><label htmlFor="votes">Votes</label></li>
+                    <li><input id="created_at" name="sort_by" type="radio" defaultChecked></input><label htmlFor="created_at">Date</label></li>
+                    <li><input id="comment_count" name="sort_by" type="radio"></input><label htmlFor="comment_count">Comment Count</label></li>
+                    <li><input id="votes" name="sort_by" type="radio"></input><label htmlFor="votes">Votes</label></li>
                 </ul>
                 <h4>Order:</h4>
                 <ul>
