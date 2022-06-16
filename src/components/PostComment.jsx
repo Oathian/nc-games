@@ -4,18 +4,18 @@ import { postComment } from "../utils/api";
 import { UserContext } from "../contexts/User";
 import "../styles/PostComment.css"
 
-const PostComment = ({ setUserComment }) => {
+const PostComment = ({ setUserInput }) => {
     const { review_id } = useParams();
     const { user } = useContext(UserContext);
     const [commentBody, setCommentBody] = useState("")
     
     const handleSubmit = (event) => {
-        setUserComment(false);
+        setUserInput(true);
         event.preventDefault();
         postComment(user, commentBody, review_id)
         .then(() => {
             setCommentBody("");
-            setUserComment(true);
+            setUserInput(false);
         })
     };
 

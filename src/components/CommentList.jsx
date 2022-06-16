@@ -8,14 +8,14 @@ import "../styles/CommentList.css";
 const CommentList = () => {
     const { review_id } = useParams();
     const [comments, setComments] = useState([]);
-    const [userComment, setUserComment] = useState(true);
+    const [userInput, setUserInput] = useState(false);
     const { user } = useContext(UserContext);
 
     const deleteComment = (event) => {
-        setUserComment(false);
+        setUserInput(true);
         removeComment(event.target.id)
         .then(() => {
-            setUserComment(true);
+            setUserInput(false);
         })
     }
 
@@ -24,7 +24,7 @@ const CommentList = () => {
         .then((comments) => {
             setComments(comments);
         })
-    }, [userComment, review_id])
+    }, [userInput, review_id])
 
     return(
         <section className="Review__CommentList">
@@ -39,7 +39,7 @@ const CommentList = () => {
                     </section>
                 )
             })}
-            <PostComment setUserComment={setUserComment}/>
+            <PostComment setUserInput={setUserInput}/>
         </section>
     )
 }
