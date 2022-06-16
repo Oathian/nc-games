@@ -73,3 +73,9 @@
   grid-column-start: 3;
   grid-row-start: 3;
 }
+
+.Error {
+  text-align: center;
+  margin-top: 1rem;
+  color: red;
+}
