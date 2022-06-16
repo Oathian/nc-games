@@ -24,6 +24,7 @@
   text-align: center;
   grid-column-start: 2;
   text-transform: capitalize;
+  margin-top: 0.5rem;
 }
 
 .GamesList__GamesCard {

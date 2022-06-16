@@ -1,22 +1,24 @@
 import { getCommentsByReviewId } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "../styles/CommentList.css"
+import PostComment from "./PostComment";
+import "../styles/CommentList.css";
 
 const CommentList = () => {
     const { review_id } = useParams();
     const [comments, setComments] = useState([]);
+    const [userComment, setUserComment] = useState(true)
 
     useEffect(() => {
         getCommentsByReviewId(review_id)
         .then((comments) => {
             setComments(comments);
         })
-    })
+    }, [userComment, review_id])
 
     return(
         <section className="Review__CommentList">
-            {comments.length > 0 ? <h3 className="Review__CommentTitle">Comments:</h3>:<></>}
+            <h3 className="Review__CommentTitle">{comments.length > 0 ? "Comments:":"Be the first to post something!"}</h3>
             {comments.map((comment) => {
                 return(
                     <section key={comment.comment_id} className="CommentList__CommentCard">
@@ -26,6 +28,7 @@ const CommentList = () => {
                     </section>
                 )
             })}
+            <PostComment setUserComment={setUserComment}/>
         </section>
     )
 }

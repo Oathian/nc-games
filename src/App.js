@@ -1,7 +1,7 @@
 import './styles/App.css';
 import Header from "./components/Header"
 import Navbar from "./components/Navbar"
-import GamesList from "./components/GamesList"
+import ReviewsList from "./components/ReviewsList"
 import SingleReview from './components/SingleReview';
 import { Routes, Route } from 'react-router-dom';
 import { useState } from "react"
@@ -16,8 +16,8 @@ function App() {
       <Header />
       <Navbar />
       <Routes>
-        <Route path="/" element={<GamesList />}/>
-        <Route path="/category/:category_name" element={<GamesList />}/>
+        <Route path="/" element={<ReviewsList />}/>
+        <Route path="/category/:category_name" element={<ReviewsList />}/>
         <Route path="/reviews/:review_id" element={<SingleReview />}/>
       </Routes>
     </div>

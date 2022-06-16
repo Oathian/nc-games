@@ -4,7 +4,6 @@ import { getReviewById } from "../utils/api";
 import { formatText } from "../utils/formatText";
 import Loading from "./Loading";
 import CommentList from "./CommentList";
-import PostComment from "./PostComment";
 import Voting from "./Voting";
 import '../styles/SingleReview.css';
 
@@ -33,11 +32,10 @@ const SingleReview = () => {
             <img className="Review__img" src={review.review_img_url} alt={review.title}/>
             <div className="Review__InteractionBar">
                 <Voting review={review} />
-                <p className="InteractionBar__commentCount">{review.comment_count} Comments</p>
+                <p className="InteractionBar__commentCount">{review.comment_count==="1"?`${review.comment_count} Comment`:`${review.comment_count} Comments`}</p>
             </div>
             <p className="Review__body">{review.review_body}</p>
             <CommentList />
-            <PostComment />
         </section>
     )
 }
