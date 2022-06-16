@@ -3,9 +3,21 @@
   margin: 0;
 }
 
+.Main {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.SortMenu {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
 .GamesList {
   display: grid;
+  grid-column-start: 2;
   grid-template-columns: 10% 80% 10%;
+  align-content: flex-start;
 }
 
 .GamesList__h2 {
@@ -20,11 +32,11 @@
   display: grid;
   grid-template-columns: 20% 20% 30% 30%;
   grid-template-rows: 40% 35% 25%;
-  margin: 1rem;
+  margin-top: 1rem;
   border: 2px solid black;
   border-radius: 20px;
   padding: 0.5rem;
-  min-height: 8rem;
+  height: 140px;
 }
 
 .GamesCard__h3 {

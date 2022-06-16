@@ -1,0 +1,8 @@
+.SortMenu {
+    display: flex;
+    border-right: 1px solid #524942;
+    background-color: #99714f;
+    color:#524942;
+    justify-content: center;
+    min-height: 100vh;
+}
