@@ -5,24 +5,31 @@ import { formatText } from "../utils/formatText";
 import Loading from "./Loading";
 import CommentList from "./CommentList";
 import Voting from "./Voting";
+import ErrorComponent from "./ErrorComponent";
 import '../styles/SingleReview.css';
 
 const SingleReview = () => {
     const { review_id } = useParams();
     const [loading, setLoading] = useState(true);
     const [review, setReview] = useState({});
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         setLoading(true);
+        setError(null);
         getReviewById(review_id)
         .then((reviewFromApi) => {
             setReview(reviewFromApi);
             setLoading(false);
+        }).catch((error) => {
+            setLoading(false);
+            setError(error);
         })
     }, [review_id])
 
-    if(loading) return <Loading />
     return(
+        loading?<Loading />:
+            error?<ErrorComponent error={error}/>:
         <section className="Review">
             <h2 className="Review__h2">{review.title}</h2>
             <div className="Review__InfoBar">

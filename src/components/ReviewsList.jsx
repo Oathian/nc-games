@@ -6,6 +6,8 @@ import { timestampConvert } from "../utils/timestampConvert";
 import Loading from "./Loading";
 import Voting from "./Voting";
 import SortMenu from "./SortMenu";
+import ErrorComponent from "./ErrorComponent";
+
 
 const GamesList = () => {
     const { category_name } = useParams();
@@ -13,12 +15,17 @@ const GamesList = () => {
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState(undefined);
     const [sortBy, setSortBy] = useState(undefined);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         setLoading(true);
+        setError(null);
         getReviews(category_name, sortBy, order)
         .then((reviewsFromApi) => {
             setReviews(reviewsFromApi);
+            setLoading(false);
+        }).catch((error) => {
+            setError(error);
             setLoading(false);
         })
     }, [category_name, order, sortBy])
@@ -27,6 +34,7 @@ const GamesList = () => {
         <section className="Main">
             <SortMenu setOrder={setOrder} setSortBy={setSortBy}/>
             {loading?<Loading />:
+                error?<ErrorComponent error={error}/>:
                 <section className="GamesList">
                     {category_name?<h2 className="GamesList__h2">{formatText(category_name)}</h2>:<></>}
                     {reviews.map((review) => {
