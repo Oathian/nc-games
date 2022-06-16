@@ -1,20 +1,30 @@
-import { getCommentsByReviewId } from "../utils/api";
+import { getCommentsByReviewId, removeComment } from "../utils/api";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "../contexts/User";
 import PostComment from "./PostComment";
 import "../styles/CommentList.css";
 
 const CommentList = () => {
     const { review_id } = useParams();
     const [comments, setComments] = useState([]);
-    const [userComment, setUserComment] = useState(true)
+    const [userInput, setUserInput] = useState(false);
+    const { user } = useContext(UserContext);
+
+    const deleteComment = (event) => {
+        setUserInput(true);
+        removeComment(event.target.id)
+        .then(() => {
+            setUserInput(false);
+        })
+    }
 
     useEffect(() => {
         getCommentsByReviewId(review_id)
         .then((comments) => {
             setComments(comments);
         })
-    }, [userComment, review_id])
+    }, [userInput, review_id])
 
     return(
         <section className="Review__CommentList">
@@ -25,10 +35,11 @@ const CommentList = () => {
                         <p className="CommentCard__author">User: {comment.author}</p>
                         <p className="CommentCard__body">{comment.body}</p>
                         <p className="CommentCard__votes">Votes: {comment.votes}</p>
+                        {user===comment.author?<button id={comment.comment_id} onClick={(event) => deleteComment(event)}>X</button>:<></>}
                     </section>
                 )
             })}
-            <PostComment setUserComment={setUserComment}/>
+            <PostComment setUserInput={setUserInput}/>
         </section>
     )
 }
