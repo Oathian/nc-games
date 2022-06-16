@@ -6,7 +6,7 @@ import "../styles/PostComment.css"
 
 const PostComment = ({ setUserComment }) => {
     const { review_id } = useParams();
-    const {user} = useContext(UserContext);
+    const { user } = useContext(UserContext);
     const [commentBody, setCommentBody] = useState("")
     
     const handleSubmit = (event) => {
