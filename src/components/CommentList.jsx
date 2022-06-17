@@ -16,6 +16,8 @@ const CommentList = () => {
         removeComment(event.target.id)
         .then(() => {
             setUserInput(false);
+        }).catch((err) => {
+            console.log(err)
         })
     }
 
@@ -36,7 +38,7 @@ const CommentList = () => {
                         <p className="CommentCard__body">{comment.body}</p>
                         <div className="CommentCard__bottom">
                             <p className="CommentCard__votes">Votes: {comment.votes}</p>
-                            {user===comment.author?<button id={comment.comment_id} onClick={(event) => deleteComment(event)}><img className="comment__img" src="/delete.svg" alt="delete comment button"/></button>:<></>}
+                            {user===comment.author?<button id={comment.comment_id} onClick={(event) => deleteComment(event)}><img id={comment.comment_id} className="comment__img" src="/delete.svg" alt="delete comment button"/></button>:<></>}
                         </div>
                     </section>
                 )
