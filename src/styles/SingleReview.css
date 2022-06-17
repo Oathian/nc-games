@@ -7,20 +7,22 @@
 
 .Review {
     margin: 0.5rem;
+    color: #524942;
+    background-color: #d3c9bc;
 }
 
 .Review__h2 {
     text-align: center;
-    margin: 0.5rem;
+    margin: 1rem;
 }
 
 .Review__InfoBar {
     display: flex;
     justify-content: space-between;
-    max-width: 700px;
+    max-width: 680px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .Review__category {
@@ -38,11 +40,10 @@
 .Review__InteractionBar {
     display: flex;
     justify-content: space-between;
-    max-width: 700px;
+    max-width: 680px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 1rem;
 }
 
 .InteractionBar__Voting {
@@ -55,8 +56,8 @@
 
 .Review__body {
     max-width: 700px;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }

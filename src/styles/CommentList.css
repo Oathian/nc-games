@@ -20,3 +20,18 @@
     margin-top: 0.3rem;
     margin-bottom: 0.3rem;
 }
+
+.CommentCard__bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.CommentList__CommentCard button{
+    border: 0px;
+    background-color: transparent;
+}
+
+.comment__img {
+    max-width: 15px;
+    cursor: pointer;
+}

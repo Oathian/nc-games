@@ -1,14 +1,45 @@
+@media only screen and (min-width: 620px) {
+    .SortMenu {
+        display: flex;
+        border-right: 1px solid #524942;
+        flex-flow: column;
+        min-height: 74.8vh;
+    }
+
+    .SortMenu__form button{
+        margin-left: 25%;
+    }
+}
+
 .SortMenu {
-    display: flex;
-    border-right: 1px solid #524942;
+    border-bottom: 1px solid #524942;
     background-color: #99714f;
     color:#524942;
-    flex-flow: column;
-    height: 100%;
 }
 
 .SortMenu__form {
-    margin: 1rem;
+    margin: 0.8rem;
+}
+
+@media only screen and (max-width: 619px) {
+    .SortMenu {
+        display: flex;
+        justify-content: center;
+    }
+
+    .SortMenu__sortby {
+        display: inline-flex;
+        flex-flow: column;
+    }
+    
+    .SortMenu__order {
+        display: inline-flex;
+        flex-flow: column;
+    }
+
+    .SortMenu__form button{
+        margin-left: 35%;
+    }
 }
 
 .SortMenu__form ul{
@@ -16,10 +47,24 @@
     margin: 0.2rem;
 }
 
+.SortMenu input {
+    cursor: pointer;
+}
+
+.SortMenu label {
+    cursor: pointer;
+}
+
 .SortMenu__form button{
+    margin-top: 0.5rem;
     border-radius: 20px;
     padding: 0.2rem;
-    border: #524942;
+    border: #c9995b 3px solid;
     color:#524942;
-    align-self: center;
+    cursor: pointer;
+    background-color: #e7d9c6;
+}
+
+.SortMenu__form button:hover {
+    border: #524942 3px solid;
 }

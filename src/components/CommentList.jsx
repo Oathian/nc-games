@@ -34,8 +34,10 @@ const CommentList = () => {
                     <section key={comment.comment_id} className="CommentList__CommentCard">
                         <p className="CommentCard__author">User: {comment.author}</p>
                         <p className="CommentCard__body">{comment.body}</p>
-                        <p className="CommentCard__votes">Votes: {comment.votes}</p>
-                        {user===comment.author?<button id={comment.comment_id} onClick={(event) => deleteComment(event)}>X</button>:<></>}
+                        <div className="CommentCard__bottom">
+                            <p className="CommentCard__votes">Votes: {comment.votes}</p>
+                            {user===comment.author?<button id={comment.comment_id} onClick={(event) => deleteComment(event)}><img className="comment__img" src="/delete.svg" alt="delete comment button"/></button>:<></>}
+                        </div>
                     </section>
                 )
             })}
