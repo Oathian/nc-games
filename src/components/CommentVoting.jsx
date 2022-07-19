@@ -1,19 +1,19 @@
-import { patchVotes } from "../utils/api";
+import { patchCommentVote } from "../utils/api";
 import { useState } from "react"
 import '../styles/Voting.css';
 
-const Voting = ({ review }) => {
-    const [votes, setVotes] = useState(review.votes);
-
+const CommentVoting = ({ comment }) => {
+    const [votes, setVotes] = useState(comment.votes);
+    
     const handleUpvote = () => {
-        patchVotes(review.review_id, 1)
+        patchCommentVote(comment.comment_id, 1)
         .then((data) => {
             setVotes(data.votes);
         })
     }
 
     const handleDownvote = () => {
-        patchVotes(review.review_id, -1)
+        patchCommentVote(comment.comment_id, -1)
         .then((data) => {
             setVotes(data.votes);
         })
@@ -28,4 +28,4 @@ const Voting = ({ review }) => {
     )
 }
 
-export default Voting;
+export default CommentVoting;

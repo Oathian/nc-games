@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../contexts/User";
 import PostComment from "./PostComment";
+import CommentVoting from "./CommentVoting";
 import "../styles/CommentList.css";
 
 const CommentList = () => {
@@ -37,7 +38,7 @@ const CommentList = () => {
                         <p className="CommentCard__author">User: {comment.author}</p>
                         <p className="CommentCard__body">{comment.body}</p>
                         <div className="CommentCard__bottom">
-                            <p className="CommentCard__votes">Votes: {comment.votes}</p>
+                            <CommentVoting comment={comment}/>
                             {user===comment.author?<button id={comment.comment_id} onClick={(event) => deleteComment(event)}><img id={comment.comment_id} className="comment__img" src="/delete.svg" alt="delete comment button"/></button>:<></>}
                         </div>
                     </section>
