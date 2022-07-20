@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import  { getReviews }  from "../utils/api";
+import { useEffect, useState, useContext } from "react";
+import  { getReviews, removeReview }  from "../utils/api";
 import { Link, useParams } from "react-router-dom";
 import { formatText } from "../utils/formatText";
 import { timestampConvert } from "../utils/timestampConvert";
+import { UserContext } from "../contexts/User";
 import Loading from "./Loading";
 import Voting from "./Voting";
 import SortMenu from "./SortMenu";
@@ -12,6 +13,7 @@ import ErrorComponent from "./ErrorComponent";
 
 const GamesList = () => {
     const { category_name } = useParams();
+    const { user } = useContext(UserContext);
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState(undefined);
@@ -22,6 +24,16 @@ const GamesList = () => {
 
     const toggleCollapse = () => {
         isCollapsed?setIsCollapsed(false):setIsCollapsed(true);
+    };
+
+    const deleteReview = (event) => {
+        setUserInput(true);
+        removeReview(event.target.id)
+        .then(() => {
+            setUserInput(false);
+        }).catch((err) => {
+            console.log(err)
+        });
     };
 
     useEffect(() => {
@@ -54,6 +66,7 @@ const GamesList = () => {
                             <img className="GamesCard__img" src={review.review_img_url} alt={review.title}></img>
                             <Voting review={review} />
                             <p className="GamesCard__commentCount">{review.comment_count==="1"?`${review.comment_count} Comment`:`${review.comment_count} Comments`}</p>
+                            {user===review.owner?<button className="GamesCard__delete" id={review.review_id} onClick={(event) => deleteReview(event)}><img id={review.review_id} className="delete_img" src="/delete.svg" alt="delete comment button"/></button>:<></>}
                         </section>
                     )
                 })}

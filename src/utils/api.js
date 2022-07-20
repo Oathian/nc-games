@@ -66,3 +66,10 @@ export const postReview = (title, username, category, designer, body) => {
       return review;
     });
 };
+
+export const removeReview = (review_id) => {
+    return gamesApi.delete(`/reviews/${review_id}`)
+    .then(() => {
+        return;
+    });
+};
