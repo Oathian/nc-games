@@ -19,14 +19,14 @@ const CommentList = () => {
             setUserInput(false);
         }).catch((err) => {
             console.log(err)
-        })
-    }
+        });
+    };
 
     useEffect(() => {
         getCommentsByReviewId(review_id)
         .then((comments) => {
             setComments(comments);
-        })
+        });
     }, [userInput, review_id])
 
     return(
