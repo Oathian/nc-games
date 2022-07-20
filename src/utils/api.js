@@ -59,3 +59,10 @@ export const patchCommentVote = (comment_id, vote) => {
       return newComment;
     });
 };
+
+export const postReview = (title, username, category, designer, body) => {
+    return gamesApi.post(`/reviews`, {owner : username, review_body : body, designer: designer, category: category, title: title})
+    .then(({ data : { review }}) => {
+      return review;
+    });
+};

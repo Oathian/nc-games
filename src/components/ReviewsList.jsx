@@ -6,6 +6,7 @@ import { timestampConvert } from "../utils/timestampConvert";
 import Loading from "./Loading";
 import Voting from "./Voting";
 import SortMenu from "./SortMenu";
+import ReviewForm from "./ReviewForm";
 import ErrorComponent from "./ErrorComponent";
 
 
@@ -16,6 +17,12 @@ const GamesList = () => {
     const [order, setOrder] = useState(undefined);
     const [sortBy, setSortBy] = useState(undefined);
     const [error, setError] = useState(null);
+    const [isCollapsed, setIsCollapsed] = useState(true);
+    const [userInput, setUserInput] = useState(false);
+
+    const toggleCollapse = () => {
+        isCollapsed?setIsCollapsed(false):setIsCollapsed(true);
+    };
 
     useEffect(() => {
         setLoading(true);
@@ -28,7 +35,7 @@ const GamesList = () => {
             setError(error);
             setLoading(false);
         })
-    }, [category_name, order, sortBy])
+    }, [category_name, order, sortBy, userInput])
 
     return (
         <section className="Main">
@@ -36,6 +43,8 @@ const GamesList = () => {
             {loading?<Loading />:
                 error?<ErrorComponent error={error}/>:
                 <section className="GamesList">
+                    <button onClick={toggleCollapse}>{isCollapsed?<p>Add a review</p>:<p>Show less</p>}</button>
+                    {isCollapsed?<></>:<ReviewForm setUserInput={setUserInput}/>}
                     {category_name?<h2 className="GamesList__h2">{formatText(category_name)}</h2>:<></>}
                     {reviews.map((review) => {
                     return(

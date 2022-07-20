@@ -21,7 +21,7 @@ const PostComment = ({ setUserInput }) => {
             setUserInput(false);
         }).catch((error) => {
             setError(error);
-        })
+        });
     };
 
     return (
