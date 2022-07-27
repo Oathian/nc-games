@@ -5,9 +5,9 @@ import { useParams } from "react-router-dom";
 import  { postReview }  from "../utils/api";
 import { formatText } from "../utils/formatText";
 import ErrorComponent from "./ErrorComponent";
+import "../styles/AddReview.css"
 
-
-const ReviewForm = ({ setUserInput }) => {
+const AddReview = ({ setUserInput }) => {
     const [categories, setCategories] = useState([]);
     const [addedReviewBody, setAddedReviewBody] = useState("");
     const [addedTitle, setAddedTitle] = useState("");
@@ -19,7 +19,6 @@ const ReviewForm = ({ setUserInput }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setUserInput(true);
-        console.log(event.target[0].value, user, event.target[1].value, event.target[2].value, event.target[3].value)
         postReview(event.target[0].value, user, event.target[1].value, event.target[2].value, event.target[3].value)
         .then(() => {
             setUserInput(false);
@@ -61,4 +60,4 @@ const ReviewForm = ({ setUserInput }) => {
         </div>);
 };
 
-export default ReviewForm;
+export default AddReview;

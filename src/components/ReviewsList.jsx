@@ -7,7 +7,7 @@ import { UserContext } from "../contexts/User";
 import Loading from "./Loading";
 import Voting from "./Voting";
 import SortMenu from "./SortMenu";
-import ReviewForm from "./ReviewForm";
+import AddReview from "./AddReview";
 import ErrorComponent from "./ErrorComponent";
 
 
@@ -55,8 +55,8 @@ const GamesList = () => {
             {loading?<Loading />:
                 error?<ErrorComponent error={error}/>:
                 <section className="GamesList">
-                    <button onClick={toggleCollapse}>{isCollapsed?<p>Add a review</p>:<p>Show less</p>}</button>
-                    {isCollapsed?<></>:<ReviewForm setUserInput={setUserInput}/>}
+                    <button className="AddReview__button" onClick={toggleCollapse}>{isCollapsed?<h3>Add a review</h3>:<h3>Show less</h3>}</button>
+                    {isCollapsed?<></>:<AddReview setUserInput={setUserInput}/>}
                     {category_name?<h2 className="GamesList__h2">{formatText(category_name)}</h2>:<></>}
                     {reviews.map((review) => {
                     return(
