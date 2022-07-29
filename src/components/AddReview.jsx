@@ -41,21 +41,21 @@ const AddReview = ({ setUserInput }) => {
 
     return(<div>
         {error?<ErrorComponent error={error}/>:<></>}
-        <form onSubmit={handleSubmit}>
+        <form className="AddReview__form" onSubmit={handleSubmit}>
             <label htmlFor="title">Title:</label>
-            <input value={addedTitle} onChange={(event) => setAddedTitle(event.target.value)} id="title"></input>
+            <input className="AddReview__title" value={addedTitle} onChange={(event) => setAddedTitle(event.target.value)} id="title"></input>
             <label htmlFor="category">Category:</label>
-            <select id="category">
+            <select className="AddReview__category" id="category">
                 {category_name?<option value={category_name}>{formatText(category_name)}</option>:<option value="">Choose an option</option>}
             {categories.map((category) => {
-                return <option value={category} key={category}>{formatText(category)}</option>
+                return category_name === category?<></>:<option value={category} key={category}>{formatText(category)}</option>
             })}
             </select>
             <label htmlFor="designer">Game Designer:</label>
-            <input value={addedDesigner} onChange={(event) => setAddedDesigner(event.target.value)} id="designer"></input>
+            <input className="AddReview__designer" value={addedDesigner} onChange={(event) => setAddedDesigner(event.target.value)} id="designer"></input>
             <label htmlFor="body">Review:</label>
-            <textarea value={addedReviewBody} onChange={(event) => setAddedReviewBody(event.target.value)} id="body"></textarea>
-            <button type="sumbit">Submit</button>
+            <textarea className="AddReview__body" value={addedReviewBody} onChange={(event) => setAddedReviewBody(event.target.value)} id="body"></textarea>
+            <button className="AddReview__submit" type="sumbit">Submit</button>
         </form>
         </div>);
 };
