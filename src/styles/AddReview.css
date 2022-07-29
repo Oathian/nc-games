@@ -1,0 +1,55 @@
+.AddReview__form {
+    color:#524942;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.AddReview__title {
+    border: #524942 3px solid;
+    border-radius: 20px;
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.2rem;
+
+}
+
+.AddReview__category {
+    border: #524942 3px solid;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    margin-top: 0.2rem;
+    text-transform: capitalize;
+
+}
+
+.AddReview__designer {
+    border: #524942 3px solid;
+    border-radius: 20px;
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.2rem;
+
+}
+
+.AddReview__body {
+    border: #524942 3px solid;
+    border-radius: 20px;
+    padding: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+.AddReview__submit {
+    margin-top: 0.5rem;
+    border-radius: 20px;
+    padding: 0.2rem;
+    border: #c9995b 3px solid;
+    color:#524942;
+    cursor: pointer;
+    background-color: #e7d9c6;
+}
+
+.AddReview__submit:hover {
+    border: #524942 3px solid;
+}

@@ -6,7 +6,7 @@
 }
 
 .Review {
-    margin: 0.5rem;
+    margin: 0.5rem 0.5rem 0 0.5rem;
     color: #524942;
     background-color: #d3c9bc;
 }
@@ -30,7 +30,7 @@
 }
 
 .Review__img {
-    max-width: 100vw;
+    max-width: 95vw;
     max-height: 50vh;
     display: block;
     margin-left: auto;

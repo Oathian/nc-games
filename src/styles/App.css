@@ -51,6 +51,23 @@
   background-color: #d3c9bc;
 }
 
+.AddReview__button {
+  border: 2px solid #c9995b;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #c9995b;
+  color: #524942;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.AddReview__button:hover {
+  border: 2px solid #524942;
+  border-radius: 20px;
+  color: #c8e6e5;
+}
+
 .GamesList__h2 {
   text-align: center;
   grid-column-start: 2;
@@ -125,6 +142,8 @@
   grid-row-start: 3;
   border: 0px;
   background-color: transparent;
+  justify-self: end;
+  align-self: end;
 }
 
 .delete_img {
