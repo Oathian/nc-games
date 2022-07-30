@@ -39,7 +39,7 @@ const CommentList = () => {
                         <p className="CommentCard__body">{comment.body}</p>
                         <div className="CommentCard__bottom">
                             <CommentVoting comment={comment}/>
-                            {user===comment.author?<button id={comment.comment_id} onClick={(event) => deleteComment(event)}><img id={comment.comment_id} className="comment__img" src="/delete.svg" alt="delete comment button"/></button>:<></>}
+                            {user?user.username===comment.author?<button id={comment.comment_id} onClick={(event) => deleteComment(event)}><img id={comment.comment_id} className="comment__img" src="/delete.svg" alt="delete comment button"/></button>:<></>:<></>}
                         </div>
                     </section>
                 )

@@ -19,7 +19,7 @@ const AddReview = ({ setUserInput }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setUserInput(true);
-        postReview(event.target[0].value, user, event.target[1].value, event.target[2].value, event.target[3].value)
+        postReview(event.target[0].value, user.username, event.target[1].value, event.target[2].value, event.target[3].value)
         .then(() => {
             setUserInput(false);
             setAddedTitle("");
@@ -48,7 +48,7 @@ const AddReview = ({ setUserInput }) => {
             <select className="AddReview__category" id="category">
                 {category_name?<option value={category_name}>{formatText(category_name)}</option>:<option value="">Choose an option</option>}
             {categories.map((category) => {
-                return category_name === category?<></>:<option value={category} key={category}>{formatText(category)}</option>
+                return category_name === category?"s":<option value={category} key={category}>{formatText(category)}</option>
             })}
             </select>
             <label htmlFor="designer">Game Designer:</label>

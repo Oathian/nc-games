@@ -9,7 +9,7 @@ const Header = () => {
     return(
         <header className="header">
             <Link className="header__h1" to="/"><h1>NC Games</h1></Link>
-            <p className="header__welcome">Welcome, { user }</p>
+            {user?<p className="header__welcome">Welcome, { user.username }</p>:<Link className="header__welcome" to="/sign-in"><h3>Sign in or sign up</h3></Link>}
         </header>
     )
 }
