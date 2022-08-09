@@ -1,23 +1,35 @@
 import { patchVotes } from "../utils/api";
-import { useState } from "react"
+import { useState, useContext } from "react";
+import { UserContext } from "../contexts/User";
+import { useNavigate } from "react-router-dom";
 import '../styles/Voting.css';
 
 const Voting = ({ review }) => {
     const [votes, setVotes] = useState(review.votes);
+    const { user } = useContext(UserContext);
+    const navigate = useNavigate();
 
     const handleUpvote = () => {
-        patchVotes(review.review_id, 1)
-        .then((data) => {
-            setVotes(data.votes);
-        })
-    }
+        if(!user) {
+            navigate("/sign-in");
+        }else{
+            patchVotes(review.review_id, 1)
+            .then((data) => {
+                setVotes(data.votes);
+            });
+        };
+    };
 
     const handleDownvote = () => {
-        patchVotes(review.review_id, -1)
-        .then((data) => {
-            setVotes(data.votes);
-        })
-    }
+        if(!user) {
+            navigate("/sign-in");
+        }else{
+            patchVotes(review.review_id, -1)
+            .then((data) => {
+                setVotes(data.votes);
+            });
+        };
+    };
     
     return(
     <div className="InteractionBar__Voting">
