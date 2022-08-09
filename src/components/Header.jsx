@@ -3,13 +3,17 @@ import { UserContext } from "../contexts/User";
 import { useContext } from "react";
 import "../styles/Header.css";
 
-const Header = () => {
+const Header = ({ setUser }) => {
     const { user } = useContext(UserContext);
-
+    
+    const handleSignOut = () => {
+        setUser(undefined);
+    };
+    
     return(
         <header className="header">
             <Link className="header__h1" to="/"><h1>NC Games</h1></Link>
-            {user?<p className="header__welcome">Welcome, { user.username }</p>:<Link className="header__welcome" to="/sign-in"><h3>Sign in or sign up</h3></Link>}
+            {user?<div className="header__div"><p className="header__welcome">Welcome, { user.username }</p><button className="header__signout" onClick={handleSignOut}>Sign Out</button></div>:<Link className="header__sign" to="/sign-in"><h3>Sign in or sign up</h3></Link>}
         </header>
     )
 }

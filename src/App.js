@@ -15,7 +15,7 @@ function App() {
   return (
     <UserContext.Provider value={{ user }}>
     <div className="App">
-      <Header />
+      <Header setUser={setUser}/>
       <Navbar />
       <Routes>
         <Route path="/" element={<ReviewsList />}/>
