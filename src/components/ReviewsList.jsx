@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import  { getReviews, removeReview }  from "../utils/api";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { formatText } from "../utils/formatText";
 import { timestampConvert } from "../utils/timestampConvert";
 import { UserContext } from "../contexts/User";
@@ -21,9 +21,10 @@ const GamesList = () => {
     const [error, setError] = useState(null);
     const [isCollapsed, setIsCollapsed] = useState(true);
     const [userInput, setUserInput] = useState(false);
+    const navigate = useNavigate();
 
     const toggleCollapse = () => {
-        isCollapsed?setIsCollapsed(false):setIsCollapsed(true);
+        user?isCollapsed?setIsCollapsed(false):setIsCollapsed(true):navigate("/sign-in");
     };
 
     const deleteReview = (event) => {
@@ -66,7 +67,7 @@ const GamesList = () => {
                             <img className="GamesCard__img" src={review.review_img_url} alt={review.title}></img>
                             <Voting review={review} />
                             <p className="GamesCard__commentCount">{review.comment_count==="1"?`${review.comment_count} Comment`:`${review.comment_count} Comments`}</p>
-                            {user===review.owner?<button className="GamesCard__delete" id={review.review_id} onClick={(event) => deleteReview(event)}><img id={review.review_id} className="delete_img" src="/delete.svg" alt="delete comment button"/></button>:<></>}
+                            {user?user.username===review.owner?<button className="GamesCard__delete" id={review.review_id} onClick={(event) => deleteReview(event)}><img id={review.review_id} className="delete_img" src="/delete.svg" alt="delete comment button"/></button>:<></>:<></>}
                         </section>
                     )
                 })}

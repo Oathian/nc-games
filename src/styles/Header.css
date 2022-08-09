@@ -22,9 +22,44 @@
 }
 
 .header__welcome {
+    margin-top: 0.3rem;
+    text-decoration: none;
     color: #524942;
-    margin-left: 50vw;
     padding-right: 1rem;
     padding-bottom: 1rem;
     text-align: end;
+}
+
+.header__div{
+    margin-right: 1rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.header__signout{
+    border-radius: 20px;
+    padding: 0.2rem;
+    border: #c9995b 3px solid;
+    color:#524942;
+    cursor: pointer;
+    background-color: #e7d9c6;
+}
+
+.header__signout:hover {
+    border: #524942 3px solid;
+}
+
+.header__sign {
+    display: flex;
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #524942;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    justify-content: flex-end;
+}
+
+.header__sign:hover {
+    color: #c8e6e5;
 }

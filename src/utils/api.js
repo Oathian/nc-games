@@ -73,3 +73,10 @@ export const removeReview = (review_id) => {
         return;
     });
 };
+
+export const getUserByUsername= (username) => {
+    return gamesApi.get(`/users/${username}`, { params: { username: username }})
+    .then(({ data : { user }}) => {
+        return user;
+    });
+};
