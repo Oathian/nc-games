@@ -2,11 +2,13 @@
     display: flex;
     flex-flow: column;
     text-align: center;
-    height: 66vh;
+    align-items: center;
+    height: 70vh;
     color:#524942;
 }
 
 .signBox {
+    max-width: 20rem;
     margin: 5rem;
 }
 
@@ -33,13 +35,14 @@
 
 .signForm {
     border: #c9995b 3px solid;
-    padding: 1rem;
+    padding:  1rem;
 }
 
 .signInput {
     border: #524942 3px solid;
     border-radius: 20px;
     padding: 0.4rem;
+    margin-left: 0.2rem;
     margin-bottom: 0.5rem;
     margin-top: 0.2rem;
 }
