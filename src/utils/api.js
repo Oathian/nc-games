@@ -80,3 +80,10 @@ export const getUserByUsername= (username) => {
         return user;
     });
 };
+
+export const postUser = (username, name, avatar_url) => {
+    return gamesApi.post(`/users`, {username : username, name : name, avatar_url: avatar_url})
+    .then(({ data : { user }}) => {
+      return user;
+    });
+};
