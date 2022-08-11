@@ -1,0 +1,58 @@
+.signPage {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    height: 66vh;
+    color:#524942;
+}
+
+.signBox {
+    margin: 5rem;
+}
+
+.signToggle {
+    border-radius: 20px 20px 0 0;
+    padding: 0.4rem;
+    border-style: solid;
+    border-color: #c9995b;
+    border-width: 3px 3px 0 3px;
+    cursor: pointer;
+    color:#524942;
+    background-color: #e7d9c6;
+}
+
+.signToggle:hover {
+    border-style: solid;
+    border-color: #524942;
+    border-width: 3px 3px 0 3px;
+}
+
+.signTitle {
+    color: #524942;
+}
+
+.signForm {
+    border: #c9995b 3px solid;
+    padding: 1rem;
+}
+
+.signInput {
+    border: #524942 3px solid;
+    border-radius: 20px;
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+.signButton {
+    border-radius: 20px;
+    padding: 0.4rem;
+    border: #c9995b 3px solid;
+    cursor: pointer;
+    color:#524942;
+    background-color: #e7d9c6;
+}
+
+.signButton:hover {
+    border: #524942 3px solid;
+}
