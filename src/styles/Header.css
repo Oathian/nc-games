@@ -14,6 +14,7 @@
 }
 
 .header__h1 h1 {
+    display: inline-block;
     margin: 3rem;
 }
 
@@ -50,11 +51,9 @@
     border: #524942 3px solid;
 }
 
-.header__sign {
+.header__signdiv {
     display: flex;
     margin-right: 1rem;
-    text-decoration: none;
-    color: #524942;
     padding-right: 1rem;
     padding-bottom: 1rem;
     justify-content: flex-end;
@@ -62,4 +61,10 @@
 
 .header__sign:hover {
     color: #c8e6e5;
+}
+
+.header__sign {
+    display: inline-block;
+    text-decoration: none;
+    color: #524942;
 }
