@@ -27,7 +27,6 @@ const SignIn = ({ setUser }) => {
     const handleSignUp = (event) => {
         event.preventDefault();
         postUser(event.target[0].value, event.target[1].value, event.target[2].value).then((user) => {
-            console.log(user)
             setUser(user);
             navigate("../");
         }).catch((error) => {
