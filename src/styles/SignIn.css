@@ -8,7 +8,7 @@
 }
 
 .signBox {
-    max-width: 20rem;
+    max-width: 16rem;
     margin: 5rem;
 }
 
@@ -31,6 +31,7 @@
 
 .signTitle {
     color: #524942;
+    margin-bottom: 0.2rem;
 }
 
 .signForm {
