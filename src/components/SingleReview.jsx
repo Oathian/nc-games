@@ -36,7 +36,7 @@ const SingleReview = () => {
                 <p className="Review__category">Category: {formatText(review.category)}</p>
                 <p className="Review__username">User: {review.owner}</p>
             </div>
-            <img className="Review__img" src={review.review_img_url} alt={review.title}/>
+            <img draggable="false" className="Review__img" src={review.review_img_url} alt={review.title}/>
             <div className="Review__InteractionBar">
                 <Voting review={review} />
                 <p className="InteractionBar__commentCount">{review.comment_count==="1"?`${review.comment_count} Comment`:`${review.comment_count} Comments`}</p>

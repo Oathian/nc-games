@@ -2,7 +2,7 @@ import "../styles/Loading.css"
 
 const Loading = () => {
     return(
-        <img className="loading" src="/pawn.svg" alt="Chess pawn"/>
+        <img draggable="false" className="loading" src="/pawn.svg" alt="Chess pawn"/>
     )
 }
 

@@ -33,9 +33,9 @@ const Voting = ({ review }) => {
     
     return(
     <div className="InteractionBar__Voting">
-        <button onClick={handleUpvote} className="Voting__upvote"><img className="vote__img" src="/upvote.svg" alt="upvote button"/></button>
+        <button onClick={handleUpvote} className="Voting__upvote"><img draggable="false" className="vote__img" src="/upvote.svg" alt="upvote button"/></button>
         <p className="Voting__votes">{votes}</p>
-        <button onClick={handleDownvote}  className="Voting__downvote"><img className="vote__img" src="/downvote.svg" alt="downvote button"/></button>
+        <button onClick={handleDownvote}  className="Voting__downvote"><img draggable="false" className="vote__img" src="/downvote.svg" alt="downvote button"/></button>
     </div>
     )
 }
