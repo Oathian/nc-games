@@ -11,6 +11,13 @@ import { UserContext } from "./contexts/User";
 
 function App() {
   const [user, setUser] = useState();
+  const [alreadyLogged, setAlreadyLogged] = useState();
+  const returningUser = localStorage.getItem("user");
+
+  if(returningUser && !alreadyLogged) {
+    setUser(JSON.parse(returningUser));
+    setAlreadyLogged(true);
+  };
 
   return (
     <UserContext.Provider value={{ user }}>

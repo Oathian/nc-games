@@ -8,6 +8,7 @@ const Header = ({ setUser }) => {
     
     const handleSignOut = () => {
         setUser(undefined);
+        localStorage.removeItem("user");
     };
 
     const handleUserImg = (event) => {

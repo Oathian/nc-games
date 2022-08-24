@@ -17,6 +17,7 @@ const SignIn = ({ setUser }) => {
         getUserByUsername(event.target[0].value)
         .then((user) => {
             setUser(user);
+            localStorage.setItem("user", JSON.stringify(user));
             setUsername("");
             navigate("../");
         }).catch((error) => {
